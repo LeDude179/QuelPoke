@@ -3,7 +3,9 @@ Find what Pokemonr you are !!
 
 L'application fait apparaitre le pokemon en fonction du nom donné
 
-Elle écoute sur le port 8080 et se base sur la DataBase : https://pokeapi.co/api/v2/pokemon/
+Elle écoute sur le port 8080
+DataBase : https://pokeapi.co/api/v2/pokemon/
+!! Internet connexion Needed !!
 
 Launch : 
 
