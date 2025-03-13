@@ -15,10 +15,10 @@ jobs:
 
     - name: Configurer `kubectl`
       shell: bash
-      with: 
+      env: 
         super_secret: ${{ secrets.KUBE_CONFIG }}
       run: |
-        echo "${{ secrets.KUBE_CONFIG }}"  > kubeconfig.yaml
+        echo "$super_secret"  > kubeconfig.yaml
         export KUBECONFIG=kubeconfig.yaml
 
     - name: Construire et pousser l’image Docker
