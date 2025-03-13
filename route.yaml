@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: HTTPRoute
+metadata:
+  name: quelpoke-amaury
+  namespace: ampotier  # Mets le namespace que tu as créé, ou supprime cette ligne si tu veux `default`
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: external-http-gateway
+    namespace: infra
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /ampotier
+    backendRefs:
+    - name: quelpoke
+      port: 8080
