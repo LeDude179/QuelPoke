@@ -13,8 +13,10 @@ jobs:
     - name: Checkout du code
       uses: actions/checkout@v3
 
-    - name: Se connecter à Google Artifact Registry (ou Docker Hub)
-      run: echo "${{ secrets.GCP_SERVICE_ACCOUNT }}" | base64 --decode > keyfile.json
+    - name: Configurer `kubectl`
+       run: |
+        echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > kubeconfig.yaml
+        export KUBECONFIG=kubeconfig.yaml
 
     - name: Construire et pousser l’image Docker
       run: |
